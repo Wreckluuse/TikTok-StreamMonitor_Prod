@@ -69,7 +69,7 @@
 	{#if settingsOpen}
 		<!-- svelte-ignore missing-declaration -->
 		<div
-			class="inline grid grid-cols-5 grid-gap-1 z-10 w-full h-[4%] bg-neutral shadow text-sm rounded-t-md"
+			class="inline grid grid-cols-5 grid-gap-1 z-10 w-full h-[4%] bg-secondary shadow text-sm rounded-t-md"
 
 			transition:fly={{opacity: 1, duration: 10, y: -10 }}
 
@@ -108,13 +108,13 @@
 	{/if}
 	<div class="inline h-[4%] flex flex-cols w-full rounded-t-md bg-neutral">
 		<div
-			class="  bg-accent pr-5 place-items-left text-2xl text-zinc-100 w-full z-5 shadow rounded-tl-md"
+			class="  bg-secondary pr-5 place-items-left text-2xl text-zinc-100 w-full z-5 shadow rounded-tl-md"
 		>
 			Events
 		</div>
 
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class="inline w-fit rounded-tr-md float-right bg-accent" on:click={toggleSettings}>
+		<div class="inline w-fit rounded-tr-md float-right bg-secondary" on:click={toggleSettings}>
 			<i
 				class=" text-xl z-6 mr-2 mt-1 fa-solid fa-filter text-zinc-100 hover:text-gray-500 hover:drop-shadow-xl transition transform hover:-translate-y-1"
 			/>

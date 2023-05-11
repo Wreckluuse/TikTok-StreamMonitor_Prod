@@ -64,7 +64,7 @@
 >
 	{#if settingsOpen}
 		<div
-			class="inline grid grid-cols-4 grid-gap-1 z-10 w-full h-[4%] rounded-t-md bg-neutral shadow text-sm"
+			class="inline grid grid-cols-4 grid-gap-1 z-10 w-full h-[4%] rounded-t-md bg-secondary shadow text-sm"
 			transition:fly={{ opacity: 1, duration: 10, y: -10 }}
 		>
 			<div class="w-full"><div class="w-fit rounded-md text-neutral bg-zinc-100 mt-2 ring ring-1 ring-primary"><ColorPicker isDark={true} label={"Moderator"} bind:hex={modHex} /></div></div>
@@ -77,13 +77,13 @@
 	{/if}
 	<div class="bg-neutral inline h-[4%] flex flex-cols w-full ">
 		<div
-			class="inline bg-accent ml-1 pr-5 place-items-left text-2xl rounded-tl-md text-zinc-100 w-full z-5 shadow"
+			class="inline bg-secondary ml-1 pr-5 place-items-left text-2xl rounded-tl-md text-zinc-100 w-full z-5 shadow"
 		>
 			 Chat
 		</div>
 
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class="inline w-fit rounded-tr-md float-right bg-accent" on:click={toggleSettings}>
+		<div class="inline w-fit rounded-tr-md float-right bg-secondary" on:click={toggleSettings}>
 			<i
 				class=" text-xl z-6 mr-2 mt-1 fa-solid fa-palette text-zinc-100 hover:text-gray-500 hover:drop-shadow-xl transition transform hover:-translate-y-1"
 			/>
