@@ -18,6 +18,7 @@
 	} from '../lib/userStores';
 	import EvtBox from '../lib/evtBox/evtBox.svelte';
 	import ChatMessage from '../lib/chatMessage/chatMessage.svelte';
+	import SettingsBox from '../lib/settingsBox/settingsBox.svelte';
 	import { slide } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 
@@ -289,6 +290,8 @@
 		h: 5,
 		w: 13
 	}
+
+	let settingsPositions = ['chat', 'evt'];
 </script>
 
 <head>
@@ -393,7 +396,6 @@
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<button
 			class="bg-neutral pt-2 pb=2 hover:shadow-inner-2xl hover:active w-full h-full"
-			on:click={openCfg}
 		>
 			<i
 				class="fa-regular text-gray-300 fa-solid fa-gear settingsButton hover:text-accent hover:drop-shadow-xl transition transform hover:-translate-y-1"
@@ -401,47 +403,48 @@
 		</button>
 	</Nav>
 	{#if settingsboxOpen}
-		<div
-			class="grid grid-rows-2 grid-cols-2 pt-2 right-[20px] bottom-[90px] h-[200px] fixed backdrop-blur-sm bg-neutral shadow-2xl rounded-md w-[20%] ring-sky-100 px-5 text-gray-700"
-		>
-			<ul class="row-start-1 row-end-3 col-start-1 col-end-1 menu divide-y bg-neutral text-neutral-content h-full w-[10%]">
+	 <SettingsBox chatLayout={chatLayout} evtLayout={evtLayout} settingsPositions={settingsPositions}/>
+		<!-- <div -->
+			<!-- class="grid grid-rows-2 grid-cols-2 pt-2 right-[20px] bottom-[90px] h-[200px] fixed backdrop-blur-sm bg-neutral shadow-2xl rounded-md w-[20%] ring-sky-100 px-5 text-gray-700" -->
+		<!-- > -->
+			<!-- <ul class="row-start-1 row-end-3 col-start-1 col-end-1 menu divide-y bg-neutral text-neutral-content h-full w-[10%]"> -->
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<li onclick={swapTabs('chat')} class=" border-neutral-content rounded-md"><a>Chat</a></li>
+				<!-- <li onclick={swapTabs('chat')} class=" border-neutral-content rounded-md"><a>Chat</a></li> -->
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<li onclick={swapTabs('event')} class=" border-neutral-content rounded-md "><a>Events</a></li>
+				<!-- <li onclick={swapTabs('event')} class=" border-neutral-content rounded-md "><a>Events</a></li> -->
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<li onclick={swapTabs('timer')} class=" border-neutral-content rounded-md "><a>Timer</a></li>
-			</ul>
-			{#if tabState.chat}
-			<p class="row-start-1 row-end-1 w-full text-center">Chat</p>
-			<div class="row-start-2 row-end-3  grid grid-cols-4 gap-2 rounded-lg px-5 shadow shadow-inner mt-2 w-[80%] h-[80%] float-right ml-[20%] bg-neutral text-neutral-content">
-				<label class="mt-1 " for="chatW">Width: </label>
-				<input bind:value={chatLayout.w} class="mt-1 text-center rounded-xl h-fit" name="chatW" type="number" min="3" max="13">
-				<label class="mt-1 " for="chatH">Height: </label>
-				<input bind:value={chatLayout.h} class="mt-1 text-center rounded-xl h-fit" name="chatH" type="number" min="2" max="6">
-				<label class="mt-1 " for="chatX">X: </label>
-				<input bind:value={chatLayout.x} class="mt-1 text-center rounded-xl h-fit" name="chatX" type="number" min="1" max="7">
-				<label class="mt-1 " for="chatY">Y:</label>
-				<input bind:value={chatLayout.y} class="mt-1 text-center rounded-xl h-fit" name="chatY" type="number" min="1" max="3">
-			</div>
-			{/if}
-			{#if tabState.event}
-			<p class="row-start-1 row-end-1 w-full text-center">Events</p>
-			<div class="row-start-2 row-end-3  grid grid-cols-4 gap-2 rounded-lg px-5 shadow shadow-inner mt-2 w-[80%] h-[80%] float-right ml-[20%] bg-neutral text-neutral-content">
-				<label class="mt-1 " for="evtW">Width: </label>
-				<input bind:value={evtLayout.w} class="mt-1 text-center rounded-xl h-fit" name="evtW" type="number" min="3" max="13">
-				<label class="mt-1 " for="evtH">Height: </label>
-				<input bind:value={evtLayout.h} class="mt-1 text-center rounded-xl h-fit" name="evtH" type="number" min="2" max="6">
-				<label class="mt-1 " for="evtX">X: </label>
-				<input bind:value={evtLayout.x} class="mt-1 text-center rounded-xl h-fit" name="evtX" type="number" min="1" max="7">
-				<label class="mt-1 " for="evtY">Y:</label>
-				<input bind:value={evtLayout.y} class="mt-1 text-center rounded-xl h-fit" name="evtY" type="number" min="1" max="3">
-			</div>
-			{/if}
-			{#if tabState.timer}
-			<div></div>
-			{/if}
-		</div>
+				<!-- <li onclick={swapTabs('timer')} class=" border-neutral-content rounded-md "><a>Timer</a></li> -->
+			<!-- </ul> -->
+			<!-- {#if tabState.chat} -->
+			<!-- <p class="row-start-1 row-end-1 w-full text-center">Chat</p> -->
+			<!-- <div class="row-start-2 row-end-3  grid grid-cols-4 gap-2 rounded-lg px-5 shadow shadow-inner mt-2 w-[80%] h-[80%] float-right ml-[20%] bg-neutral text-neutral-content"> -->
+				<!-- <label class="mt-1 " for="chatW">Width: </label> -->
+				<!-- <input bind:value={chatLayout.w} class="mt-1 text-center rounded-xl h-fit" name="chatW" type="number" min="3" max="13"> -->
+				<!-- <label class="mt-1 " for="chatH">Height: </label> -->
+				<!-- <input bind:value={chatLayout.h} class="mt-1 text-center rounded-xl h-fit" name="chatH" type="number" min="2" max="6"> -->
+				<!-- <label class="mt-1 " for="chatX">X: </label> -->
+				<!-- <input bind:value={chatLayout.x} class="mt-1 text-center rounded-xl h-fit" name="chatX" type="number" min="1" max="7"> -->
+				<!-- <label class="mt-1 " for="chatY">Y:</label> -->
+				<!-- <input bind:value={chatLayout.y} class="mt-1 text-center rounded-xl h-fit" name="chatY" type="number" min="1" max="3"> -->
+			<!-- </div> -->
+			<!-- {/if} -->
+			<!-- {#if tabState.event} -->
+			<!-- <p class="row-start-1 row-end-1 w-full text-center">Events</p> -->
+			<!-- <div class="row-start-2 row-end-3  grid grid-cols-4 gap-2 rounded-lg px-5 shadow shadow-inner mt-2 w-[80%] h-[80%] float-right ml-[20%] bg-neutral text-neutral-content"> -->
+				<!-- <label class="mt-1 " for="evtW">Width: </label> -->
+				<!-- <input bind:value={evtLayout.w} class="mt-1 text-center rounded-xl h-fit" name="evtW" type="number" min="3" max="13"> -->
+				<!-- <label class="mt-1 " for="evtH">Height: </label> -->
+				<!-- <input bind:value={evtLayout.h} class="mt-1 text-center rounded-xl h-fit" name="evtH" type="number" min="2" max="6"> -->
+				<!-- <label class="mt-1 " for="evtX">X: </label> -->
+				<!-- <input bind:value={evtLayout.x} class="mt-1 text-center rounded-xl h-fit" name="evtX" type="number" min="1" max="7"> -->
+				<!-- <label class="mt-1 " for="evtY">Y:</label> -->
+				<!-- <input bind:value={evtLayout.y} class="mt-1 text-center rounded-xl h-fit" name="evtY" type="number" min="1" max="3"> -->
+			<!-- </div> -->
+			<!-- {/if} -->
+			<!-- {#if tabState.timer} -->
+			<!-- <div></div> -->
+			<!-- {/if} -->
+		<!-- </div> -->
 	{/if}
 	<div class="h-[90%] w-7/8 ml-4 mr-4">
 		<ContentGrid>

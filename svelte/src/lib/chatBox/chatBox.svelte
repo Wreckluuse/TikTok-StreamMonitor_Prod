@@ -63,6 +63,7 @@
 	class="bg-neutral overflow-x-hidden scrollbar-thin scrollbar-rounded-lg scrollbar-thumb-primary scrollbar-track-secondary  rounded-md h-full w-full shadow"
 >
 	{#if settingsOpen}
+
 		<div
 			class="inline grid grid-cols-4 grid-gap-1 z-10 w-full h-[4%] rounded-t-md bg-secondary shadow text-sm"
 			transition:fly={{ opacity: 1, duration: 10, y: -10 }}
