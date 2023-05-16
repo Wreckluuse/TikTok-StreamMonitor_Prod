@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'TikTok-StreamMonitor'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C17E33DA3A0448F6846B4496BAC8A25D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2037C42B19A2400B9FD45E04C65E9C58 }}
           package: .
