@@ -224,7 +224,12 @@ function tteStream(uName, callback) {
 }
 
 function shutdownGracefully() {
-  tiktokLiveConnection.disconnect();
+  try {
+    tiktokLiveConnection.disconnect();
+  }
+  catch (error) {
+    console.log(error)
+  }
 }
 
 process.on('SIGINT', shutdownGracefully);
