@@ -73,7 +73,7 @@
         <div class="float-left ml-[2%] text-md w-fit inline" style:color={getViewerColor(chat_roles)}>
             {' ' + chat_nickname + ": "}
         </div>
-        <div class="ml-[2%] h-full break-words inline text-justify text-primary-content text-sm whitespace-normal">
+        <div class="ml-[2%] h-full break-words inline text-justify text-neutral-content text-sm whitespace-normal">
             {chat_messageContent}
         </div>
 	<!-- </td>

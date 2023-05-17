@@ -5,9 +5,10 @@
    export let settingsPositions = [];
    
    let shiftTab = (direction) => {
-    if (direction = 'left') {
+    console.log(`Shifted ${direction}`)
+    // if (direction = 'left') {
         
-    }
+    // }
    }   
 </script>
 
